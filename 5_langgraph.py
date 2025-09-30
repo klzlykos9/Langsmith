@@ -2,6 +2,7 @@
 
 import operator
 from typing import TypedDict, Annotated, List
+import os
 
 from dotenv import load_dotenv
 from pydantic import BaseModel, Field
@@ -12,6 +13,8 @@ from langgraph.graph import StateGraph, START, END
 
 # ---------- Setup ----------
 load_dotenv()
+
+os.environ['LANGCHAIN_PROJECT'] = 'Essay Evaluator'
 model = ChatGoogleGenerativeAI(model="gemini-2.5-flash", temperature=0)
 
 # ---------- Structured schema & model ----------
